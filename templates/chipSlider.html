@@ -1,0 +1,45 @@
+<div class="modal" ui-if='chipSlider' ui-state='chipSlider'>
+  <div class="modal-backdrop in"></div>
+  <div class="modal-dialog">
+    <div class="modal-content" ng-controller="SliderController">
+      <div class="modal-header">
+        <button class="close" 
+                ui-turn-off="chipSlider">&times;</button>
+        <h4 class="modal-title">
+          {{selectedUser}}: Spielstand ändern
+        </h4>
+      </div>
+      
+      <div class="modal-body">
+        <!--div>
+          <rzslider rz-slider-model="red.value" rz-slider-options="red.options"></rzslider>
+        </div>
+        <div>
+          <rzslider rz-slider-model="green.value" rz-slider-options="green.options"></rzslider>
+        </div>
+        <div>
+          <rzslider rz-slider-model="blue.value" rz-slider-options="blue.options"></rzslider>
+        </div>
+        <div>
+          <rzslider rz-slider-model="black.value" rz-slider-options="black.options"></rzslider>
+        </div>
+        <div>
+          <rzslider rz-slider-model="white.value" rz-slider-options="white.options"></rzslider>
+        </div-->
+        <div class="inputInSlider">
+          Chips: <input type="number" class="form-control" step="0.01" ng-model="totalValue"/>
+        </div>
+
+        <div class="inputInSlider">
+          Gelbe Karten: <input type="number" class="form-control" step="0.01" ng-model="cards"/>
+        </div>
+
+        <div class="modal-footer">
+          <button ui-turn-off="chipSlider" class="btn btn-default">Schließen</button>
+          <button ui-turn-off="chipSlider" class="btn btn-primary" ng-click="addChips()">
+            Speichern
+          </button>
+        </div>
+    </div>
+  </div>
+</div>

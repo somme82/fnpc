@@ -1,0 +1,80 @@
+<div class="modal" ui-if='matchdayOverview' ui-state='matchdayOverview'>
+  <div class="modal-backdrop in"></div>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button class="close" 
+                  ui-turn-off="matchdayOverview">&times;</button>
+        <h4 class="modal-title">
+            Übersicht
+        </h4>
+      </div>
+
+      <div class='section'>
+        <ui-state id='activeTab' default='1'></ui-state>
+
+      
+
+        <div class="btn-group justified nav-tabs">
+          <a ui-set="{'activeTab': 1}" 
+              ui-class="{'active': activeTab == 1}" class="btn btn-default">Spieltage</a>
+
+          <a ui-set="{'activeTab': 2}" 
+              ui-class="{'active': activeTab == 2}" class="btn btn-default">Strafen</a>
+        </div>  
+      </div>
+
+
+      <div ui-if="activeTab == 1">
+        <div class="modal-body">
+          <div class="score-table-row justified">
+            <div style="width:60%">Spieltag</div>
+            <div style="width:20%">Einsatz</div>
+            <div style="width:20%">Auszahlung</div>
+          </div>
+          <div  class="score-table-row scrollable-content" style="height: 50% !important;">
+            <div class="score-table-row justified" ng-repeat="matchday in matchdays[currentYear]" 
+                      ng-class="{'oddRow': $index %2 != 0, 'redRow': matchday.TotalBuyIn < matchday.TotalScore}">
+              <div style="width:60%">#{{$index + 1}} {{matchday.DATE | date:'dd.MM.yyyy'}} bei {{matchday.VENUE}}</div>
+              <div style="width:20%">{{matchday.TotalBuyIn}}</div>
+              <div style="width:20%">{{matchday.TotalScore}}</div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button ui-turn-off="matchdayOverview" class="btn btn-default">Schließen</button>
+          </div>
+        </div>
+      </div>
+
+      <div ui-if="activeTab == 2">
+        <div class="modal-body">
+
+          <div class="score-table-row justified">            
+            <div>Strafe gesamt: {{allOverScore}}</div>
+          </div>
+
+          <div class="score-table-row justified">
+            <div style="width:25%">Spieler</div>
+            <div style="width:35%">Karten</div>
+            <div style="width:25%">Berichte</div>
+            <div style="width:15%"></div>
+          </div>
+          <div  class="score-table-row scrollable-content" style="height: 50% !important;">
+            <div class="score-table-row justified" ng-repeat="score in totalScore | orderBy: '-cards'"
+                      ng-show="(!score.ignoreOnTotalScore)" ng-class="{'oddRow': $index %2 != 0, 'redRow': matchday.TotalBuyIn < matchday.TotalScore}">
+              <!--div ng-show="(!score.ignoreOnTotalScore)"-->
+                <div style="width:25%">{{score.player}}</div>
+                <div style="width:35%">{{score.cardsPenalty}} ({{score.cards}}) | {{score.cardsPenaltyAmount | number:2}} €</div>
+                <div style="width:25%">{{score.missedArticle}} | {{score.missedArticlePenalty | number:0}} €</div>
+                <div style="width:15%">{{score.totalPenalty}} €</div>
+              <!--/div-->
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button ui-turn-off="matchdayOverview" class="btn btn-default">Schließen</button>
+          </div>
+        </div>
+      </div>    
+    </div>
+  </div>
+</div>

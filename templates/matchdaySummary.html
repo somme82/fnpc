@@ -1,0 +1,22 @@
+<div class="modal" ui-if='matchdaySummary' ui-state='matchdaySummary'>
+  <div class="modal-backdrop in"></div>
+  <div class="modal-dialog">
+    <div class="modal-content" ng-controller="MatchDayController">
+      <div class="modal-header">
+        <button class="close" 
+                ui-turn-off="matchdaySummary">&times;</button>
+        <h4 class="modal-title">
+          Spieltag-Zusammenfassung
+        </h4>
+      </div>
+      
+      <div class="modal-body">
+        <div ng-bind-html="matchDayArticle[currentMatchDay].article"></div>
+        <!--textarea id="textbox" style="width: 100%; height: 400px;" readonly="readonly"></textarea-->
+        <div class="modal-footer">
+          <button ui-turn-off="matchdaySummary" class="btn btn-default">Schließen</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

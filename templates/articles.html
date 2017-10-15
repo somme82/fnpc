@@ -1,0 +1,14 @@
+<div class="fnpc-headline"><strong>Spielberichte {{currentYear}}</strong></div>
+
+ <div class="scrollable-content article-table" ng-controller="MatchDayController">
+  <div ng-repeat="matchday in matchdaysDesc" >
+    <div ng-hide="matchDayArticle[matchday.key].article == undefined"  class="article">
+      <div class="articleHeadline" ng-click="goToMatchday(matchday.key)">
+        <strong>#{{getMatchdayIndexById(matchday.key)}} {{getMatchdayById(matchday.key).DATE | date:'dd.MM.yyyy'}} bei {{getMatchdayById(matchday.key).VENUE}}</strong>
+        <span class="pull-right"><i>Von {{matchDayArticle[matchday.key].user}}</i></span>
+      </div>
+      <div ng-bind-html="matchDayArticle[matchday.key].article" class="articleContent"></div>
+      <!--div class="fnpc-article-comment">Kommentare</div-->
+    </div>
+  </div>
+</div>

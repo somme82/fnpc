@@ -1,0 +1,47 @@
+<div class="modal" ui-if='changeProfile' ui-state='changeProfile'>
+  <div class="modal-backdrop in"></div>
+  <div class="modal-dialog">
+    <div class="modal-content" ng-controller="SliderController">
+      <div class="modal-header">
+        <button class="close" 
+                ui-turn-off="changeProfile">&times;</button>
+        <h4 class="modal-title">
+          {{selectedUser}}: Profil ändern
+        </h4>
+      </div>
+      
+      <div class="modal-body">
+
+
+        
+          <form name="myForm">
+            
+            <input type="file" ngf-select ng-model="picFile" name="file" ngf-accept="'image/jpg'" required>
+          
+            <br/>
+
+            <!--button ng-click="uploadPic(picFile, newUser)">Submit</button-->
+            <img ngf-src="picFile" class="thumb">
+            <span class="progress" ng-show="picFile.progress >= 0">
+                <div style="width:{{picFile.progress}}%" ng-bind="picFile.progress + '%'"></div>
+            </span>
+
+            <div ng-show="loggedInUser.username == selectedUser">
+              <div>Altes Passwort: <input type="password" ng-model="oldPassword"/></div>
+              <div>Neues Passwort: <input type="password" ng-model="newPassword"/></div>
+              <div>Bestätigung: <input type="password" ng-model="repeatNewPassword"/></div>
+            </div>
+
+
+            <div class="modal-footer">
+              <button ui-turn-off="changeProfile" class="btn btn-default">Schließen</button>
+              <button ui-turn-off="changeProfile" class="btn btn-primary" ng-click="saveProfile(picFile, selectedUser, oldPassword, newPassword, repeatNewPassword)">
+                Speichern
+              </button>
+            </div>
+          </form>
+
+        
+    </div>
+  </div>
+</div>

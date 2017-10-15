@@ -1,0 +1,10 @@
+  <div class="table_title"><strong>Home</strong></div>
+
+ <div class="scrollable-content score-table">
+  <div ng-repeat="matchday in matchdaysDesc" ng-controller="MatchDayController">
+    <div ng-hide="matchDayArticle[matchday.key].article == undefined">
+      <h3>{{matchdays[$index + 1].DATE | date:'dd.MM.yyyy'}} bei {{matchdays[$index + 1].VENUE}}</h3>
+    </div>
+    <div ng-bind-html="matchDayArticle[$index + 1].article"></div>
+  </div>
+</div>

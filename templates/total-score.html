@@ -1,0 +1,48 @@
+<div class="fnpc-headline" ng-show="!showOverAllScore">
+  
+  <span ng-click="previousYear()" class="previous pull-left"><img class="arrow" src="./styles/images/icons-svg/carat-l-white.svg"></span><strong>Gesamtergebnis {{currentYear}}</strong><span ng-click="nextYear()" class="next pull-right"><img class="arrow" src="./styles/images/icons-svg/carat-r-white.svg"></span>
+  <!--span class="next pull-right"><img class="arrow" src="./styles/images/icons-svg/bars-white.svg"></span-->
+</div>
+<div class="fnpc-headline" ng-show="showOverAllScore">
+  
+  <span ng-click="previousYear()" class="previous pull-left"><img class="arrow" src="./styles/images/icons-svg/carat-l-white.svg"></span><strong>Ewige Rangliste (Seit 2008)</strong><span ng-click="nextYear()" class="next pull-right"><img class="arrow" src="./styles/images/icons-svg/carat-r-white.svg"></span>
+  <!--span class="next pull-right"><img class="arrow" src="./styles/images/icons-svg/bars-white.svg"></span-->
+</div>
+<div class="scrollable-content fnpc-content" ng-swipe-left="nextYear()" ng-swipe-right="previousYear()">
+
+  <div class="profile" ng-repeat="score in totalScore | orderBy: '-result'"
+              ng-class="{'selectedRow': score.player == selectedUser, 'oddRow': ((score.allOverRank -1) %2 != 0 && showTotalScoreOfAllPlayers) || ((score.realRank -1) %2 != 0 && !showTotalScoreOfAllPlayers)}"
+              ng-click="rowSelected(score.player)">
+    <div ng-show="(!score.ignoreOnTotalScore) || showTotalScoreOfAllPlayers">
+      <div class="profile-avatar-wrap">
+        <img ng-src="{{allUser[score.player].avatar}}" id="profile-avatar" alt="Image for Profile">
+      </div>
+      <div class="user-head">
+        <strong ng-show="(showTotalScoreOfAllPlayers)">#{{score.allOverRank}} {{score.player}}</strong>
+        <strong ng-show="(!showTotalScoreOfAllPlayers)">#{{score.realRank}} {{score.player}}</strong>
+        <span class="pull-right"><strong>{{score.result | currency: ""}} €</strong></span>
+      </div>
+      <div class="rebuy" ng-show="!showOverAllScore">
+        BuyIn: {{score.rebuyValue}} € | Chips: {{score.totalWin}} € | TN: {{score.participated}}/{{matchdayResults | keylength}}
+      </div>
+      <div class="rebuy" ng-show="showOverAllScore">
+        Teilnahmen: {{score.participated}}/{{matchdays | keylength}}
+      </div>
+    </div>
+  </div>
+</div>
+<div class="fnpc-menu-bottom">
+  <div class="fnpc-justified">
+    <a class="fnpc-menu-item" ng-show="!showOverAllScore" ui-turn-on="addUser"><img src="./styles/images/icons-svg/plus-white.svg"></a>
+    <a class="fnpc-menu-item" ng-show="!showOverAllScore" ui-turn-on="changeProfile"><img src="./styles/images/icons-svg/user-white.svg"></a>
+    <a class="fnpc-menu-item" ui-turn-on="matchdayOverview"><img src="./styles/images/icons-svg/bars-white.svg"></a>
+    <a class="fnpc-menu-item" ng-show="!showOverAllScore" ng-click="switchShowPlayers()" ng-class="{'showAll': showTotalScoreOfAllPlayers, 'textLineThrough': !showTotalScoreOfAllPlayers}"><strong>Alle</strong></a>
+  </div>
+  
+  
+  <div ui-content-for="modals">
+    <div ng-include="'./templates/addUser.html'"></div>
+    <div ng-include="'./templates/changeProfile.html'"></div>
+    <div ng-include="'./templates/matchdayOverview.html'"></div>
+  </div>
+</div>

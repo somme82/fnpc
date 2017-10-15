@@ -1,0 +1,65 @@
+* {
+  box-sizing: border-box;
+}
+
+/* Make sure draggable area is whole page */
+html, body {
+  height: 100%;
+}
+
+body.droppable .profile-avatar-wrap {
+  border: 5px dashed lightblue;
+  z-index: 9999;
+}
+.user-head{
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.page-wrap {
+  width: 960px;
+  margin: 100px auto;
+}
+
+.profile {
+  width: 100%;
+  float: right;
+}
+.profile-avatar-wrap {
+  width: 10%;
+  float: left;
+  margin: 0 20px 0px 0;
+  position: relative;
+  pointer-events: none;
+}
+.profile-avatar-wrap:after {
+  /* Drag Prevention */
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.profile-avatar-wrap img {
+  width: 100%;
+  display: block;
+}
+.rebuy {
+  /*text-transform: uppercase;*/
+  color: #999;
+  /*letter-spacing: 1px;*/
+  margin: 0 0 10px 0;
+  font-size: 90%;
+  float: left;
+}
+
+.location {
+  /*text-transform: uppercase;*/
+  color: #999;
+  /*letter-spacing: 1px;*/
+  margin: 0 0 10px 0;
+  font-size: 90%;
+}

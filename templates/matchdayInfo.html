@@ -1,0 +1,53 @@
+<div class="modal" ui-if='matchdayInfo' ui-state='matchdayInfo'>
+  <div class="modal-backdrop in"></div>
+  <div class="modal-dialog">
+    <div class="modal-content" ng-controller="SliderController">
+      
+      <div class="modal-body" ng-show="matchdays[currentYear][currentMatchDay].ACTIVE == 1 || loggedInUser.admin === true">
+        <div class="modal-header">
+          <button class="close" 
+                  ui-turn-off="matchdayInfo">&times;</button>
+          <h4 class="modal-title">
+            Spielstand-Historie
+          </h4>
+        </div>
+        <div  class="score-table-row scrollable-content" style="height: 50% !important;">
+          <div class="score-table-row justified" ng-repeat="score in allScoresOfMatchday" 
+                    ng-class="{'oddRow': $index %2 != 0}">
+            <div>{{score.username}}</div>
+            <div>{{score.chipcount | currency: ""}} €</div>
+            <div>{{score.inserttimestamp | date:'HH:mm'}}</div>
+            <div>{{score.isrebuy}}</div>
+            <div><a class="btn pull-right" ui-turn-on="matchdayInfo" ng-click="deleteScore(score.id)"><img src="./styles/images/icons-svg/delete-black.svg"></a></div>
+          </div>
+        </div> 
+
+        <div class="modal-footer">
+          <button ui-turn-off="matchdayInfo" class="btn btn-primary" ng-hide="allScoresOfMatchday.length > 0" ng-click="deleteMatchDay(currentMatchDay)">Spieltag löschen</button>
+          <button ui-turn-off="matchdayInfo" class="btn btn-primary" ng-hide="matchdays[currentYear][currentMatchDay].ACTIVE == 0" ng-click="toggleMatchday(currentMatchDay, 0)">Spieltag abschließen</button>
+          <button ui-turn-off="matchdayInfo" class="btn btn-primary" ng-hide="matchdays[currentYear][currentMatchDay].ACTIVE == 1" ng-click="toggleMatchday(currentMatchDay, 1)">Spieltag aktivieren</button>
+          <button ui-turn-off="matchdayInfo" class="btn btn-default">Schließen</button>
+        </div>
+      </div>
+
+      <div ng-show="matchdays[currentYear][currentMatchDay].ACTIVE == 0">
+        <div class="modal-header">
+          <button class="close" 
+                  ui-turn-off="matchdayInfo">&times;</button>
+          <h4 class="modal-title">
+            Spieltag-Zusammenfassung
+          </h4>
+          <div class="score-table-row justified">            
+            <div>Einsatz:</div>
+            <div>{{matchdays[currentYear][currentMatchDay].TotalBuyIn | currency: ""}} €</div>
+          </div>
+          <div class="score-table-row justified">            
+            <div>Auszahlung: </div>
+            <div>{{matchdays[currentYear][currentMatchDay].TotalScore | currency: ""}} €</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,216 @@
+.countdown{
+  text-align: center !important;
+  padding-top:20px;
+  /*ckground-color:#006ee6 !important;*/
+  /*height:40%;*/
+  /*color:white;*/
+}
+
+.countdown h2{
+  line-height:45px;
+}
+
+.countdownPic{
+  margin:0;
+}
+
+a.btn{
+  border-bottom-left-radius: 0 !important;
+  border-top-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+}
+div.article-table{
+  line-height: 1.5em;
+  padding-left: 10px;
+  padding-right: 10px;
+  height:87%;
+}
+
+div.article{
+  border: 2px solid #555;
+  margin-top: 10px;
+  //padding-left: 10px;
+}
+
+div.articleContent{
+  padding: 10px 10px 10px 10px;
+}
+
+.redRow{
+  color: red;
+}
+
+img.arrow{
+  margin: 0px !important;
+}
+
+a.showAll{
+  text-decoration: none !important;
+  letter-spacing: 2px;
+  color: white !important;
+  font-weight: normal !important;
+  text-shadow: none !important;
+}
+
+a.textLineThrough{
+  text-decoration: line-through !important;
+  letter-spacing: 2px;
+  color: white !important;
+  font-weight: normal !important;
+  text-shadow: none !important;
+}
+
+div.articleHeadline{
+  color:white;
+  background-color: #555;
+  padding-left: 10px;
+  padding-bottom: 7px;
+  padding-top: 7px;
+  padding-right:10px;
+}
+
+div.profile-avatar-wrap img{
+    margin: 0px !important;
+}
+
+div.activeMatchday {
+  background-color:#8cc63f !important;
+}
+
+.blockMsg{
+  border: none !important;
+  background-color: transparent !important;
+  z-index: 20000000 !important;
+}
+
+.blockOverlay{
+  z-index: 10000000 !important;
+}
+
+.tatalscore-info{
+  float: left !important;
+   margin-right: 2%;   background: #eee;
+}
+
+.choosePlayer{
+  margin-bottom: 15px;
+}
+
+.inputInSlider{
+  margin-top:15px;
+}
+
+
+.modal-footer{
+   margin-top:20px;
+}
+
+
+.medium-element{
+  width: 80px;
+}
+
+.score-table-row {
+  padding: 10px 0px 10px 00px;
+}
+
+.selectedRow{
+  /*border: 2px solid black !important;*/
+  font-weight: bold !important;
+  background-color: #006ee6 !important;
+}
+
+body{
+  line-height: 1 !important;
+}
+
+.score-table-head{
+  font-weight: bold;
+}
+
+.score-table{
+  height: 84%;
+}
+
+.smallInput{
+  width: 50px;
+}
+
+.ng-isolate-scope{
+  width: 100%;
+}
+
+.matchdayMenu{
+  background-color: #555 !important;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  height: 10% !important;
+}
+
+.actionButton{
+  border: 1px solid white;
+}
+
+  
+.previous{
+  margin-right: 30px;
+  cursor: hand;
+}
+.next{
+  margin-left: 30px;
+  cursor: hand;
+}
+
+.nav-tabs{
+  height: 6% !important;
+} 
+
+.oddRow {
+   background-color:#eee;
+}
+
+div.table_title{
+  background-color: #555;
+  color: white;
+  /*background-color:#8cc63f !important;*/
+  padding: 15px 5px 15px 5px;
+  text-align: center;
+  text-shadow: none;
+}
+
+.link_button_left{
+  display:block;
+  border: 1px solid white;
+  text-align: center;
+  background-color:#e6e6e6 !important;
+  padding: 20px 0px 20px 5px;
+  text-decoration: none;
+  color: black !important;
+  font-weight: normal;
+  text-shadow: none;
+  float: left;
+  width: 50%;
+}
+.link_button_right{
+  display:block;
+  border: 1px solid white;
+  text-align: center;
+  background-color:#e6e6e6 !important;
+  padding: 20px 0px 20px 5px;
+  text-decoration: none;
+  color: black !important;
+  font-weight: normal;
+  text-shadow: none;
+  float: right;
+  width: 50%;
+}
+
+/*.reallyactive{
+  background-color: #3388cc !important;
+  border-color: #3388cc !important;
+}*/
+.app{
+  background-color: white !important;
+}

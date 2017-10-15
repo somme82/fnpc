@@ -1,0 +1,11 @@
+Neu:
+- Export alter Spielergebnisse
+x Unterstützung alter Spielergebnisse
+- login
+- Kommentar-Funktion
+- Statistik-Diagramme
+
+Bugs:
+x BugFix Zeilen-Einfärbung
+x ALWAYS select a user. even if he´s not on selected matchday (select default then)
+x Stabiler Bilder-Upload

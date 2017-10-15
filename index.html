@@ -1,0 +1,75 @@
+<html >
+  <head>
+    <meta charset="utf-8" />
+    <title>Friday Night Poker Crew</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimal-ui" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="yes" />
+
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="expires" content="0">
+
+    <link rel="shortcut icon" href="./styles/images/favicon.png" type="image/x-icon" />
+
+    <!-- general files -->
+    <link rel="stylesheet" href="./lib/mobile-angular-ui/dist/css/mobile-angular-ui-hover.min.css" />
+    <link rel="stylesheet" href="./lib/mobile-angular-ui/dist/css/mobile-angular-ui-base.min.css" />
+    <link rel="stylesheet" href="./lib/mobile-angular-ui/dist/css/mobile-angular-ui-desktop.min.css" />
+    <script src="./lib/angular-1.5.0/angular.js"></script>
+    <script src="./lib/angular-1.5.0/angular-route.js"></script>
+    <script src="./lib/mobile-angular-ui/dist/js/mobile-angular-ui.js"></script>
+    <script src="./lib/mobile-angular-ui/dist/js/mobile-angular-ui.gestures.js"></script>
+    <link rel="stylesheet" href="./styles/rzslider.css"/>
+    <script src="./lib/angular-slider.js"></script>
+    <script src="./lib/ui-bootstrap-tpls.js"></script>
+    <script src="./lib/rzslider.js"></script>
+    <script src="./lib/jquery-1.12.0.min.js"></script>
+    <script src="./lib/blockUI.js"></script>
+    <script src="./lib/Chart.js/Chart.js"></script>
+    <script src="./lib/angular-chart.js/dist/angular-chart.js"></script>
+    <link rel="stylesheet" href="./lib/angular-chart.js/dist/angular-chart.css">
+    <link rel='stylesheet' href='./styles/upload.css'>
+    <link rel='stylesheet' href='./lib/avatar/style.css'>
+    <script src="./lib/avatar/resample.js"></script>
+    <script src="./lib/avatar/avatar.js"></script>
+    <script src="./lib/angular-resource.js"></script>
+    <script src="./lib/ng-file-upload-shim.js"></script>
+    <script src="./lib/ng-file-upload.js"></script>
+    <script src="./lib/ngStorage-master/ngStorage.js"></script>
+    <script type='text/javascript' src='./lib/textboxio/textboxio.js'></script>
+    <link rel="stylesheet" type="text/css" href="./lib/textboxio/example.css" />
+    <script src="./lib/bower-angular-sanitize-master/angular-sanitize.js"></script>
+
+
+    <!-- custom files -->
+    <link rel="stylesheet" href="./styles/20170402-common_styles.css?20170402">
+    <link rel="stylesheet" type="text/css"  media="screen and (max-device-width: 480px)" href="./styles/20170402-fnpc-styles.css?20170402" />
+    <link rel="stylesheet" type="text/css"  media="screen and (min-device-width: 480px)" href="./styles/20170402-fnpc-styles-big.css?20170402" />
+    <script src="./lib/20170402-slider.js?20170402"></script>
+    <script src="./lib/controller/20170402-main.js?20170402"></script>
+    <script src="./lib/controller/20170402-MatchDayController.js?20170402"></script>
+    <script src="./lib/controller/20170402-StatsController.js?20170402"></script>
+    <script src="./lib/controller/20170402-countdown-controller.js?20170402"></script>
+    <script src="./lib/controller/20170402-commentsController.js?20170402"></script>
+    <script src="./lib/20170402-logIn.js?20170402"></script>    
+    <script src="./lib/20170402-countdown.js?20170402"></script>
+  </head>
+  <body ng-app="Poker" ng-controller="MainController" ui-prevent-touchmove-defaults>
+
+    <div class="fnpc-menu-top">
+      <div class="fnpc-justified">
+        <a class="fnpc-menu-item" href="#/matchday" ng-click="setMatchDayUser()"><img src="../styles/images/icons-svg/star-black.svg"></a>
+        <a class="fnpc-menu-item" href="#/totalscore" ng-click="setTotalScoreUser()"><img src="../styles/images/icons-svg/bullets-black.svg"></a>
+        <a class="fnpc-menu-item" href="#/articles"><img src="../styles/images/icons-svg/comment-black.svg"></a>
+        <a class="fnpc-menu-item" href='#/login' ng-hide='loggedInUser.loggedIn'><img src="../styles/images/icons-svg/user-black.svg"></a>
+        <a class="fnpc-menu-item" ng-show='loggedInUser.loggedIn' ng-click="logOff()"><img src="../styles/images/icons-svg/power-black.svg"></a>
+        <!--a class="fnpc-menu-item" ng-click="initializeApplication(matchDayVenue, currentMatchDay, true)"><img src="../styles/images/icons-svg/refresh-black.svg"></a-->
+        <a ng-show="showCountdown" class="fnpc-menu-item" href="#/countdown"><img src="../styles/images/icons-svg/clock-black.svg"></a>
+      </div>
+    </div>
+    <ng-view></ng-view>
+    <div ui-yield-to="modals"></div>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+<div class="modal" ui-if='setTotalScore' ui-state='setTotalScore'>
+  <div class="modal-backdrop in"></div>
+  <div class="modal-dialog">
+    <div class="modal-content" ng-controller="SliderController">
+      <div class="modal-header">
+        <button class="close" 
+                ui-turn-off="setTotalScore">&times;</button>
+        <h4 class="modal-title">
+          Chips nachkaufen
+        </h4>
+      </div>
+      
+      <div class="modal-body">
+
+        <div class="scrollable-content" style="height: 70% !important;">
+          <div class="score-table-row justified score-table-head" >
+          <div>{{matchdays[currentYear].length}}</div>
+          <div>Spieler</div>
+          <div>Chips</div>
+          <div>Rebuys</div>
+        </div>
+
+        <div class="scrollable-content score-table-row">
+          <div class="score-table-row justified" ng-repeat="score in scoreOfMatchday" 
+                    ng-class="{'oddRow': $index %2 != 0}">
+            <div>{{$index + 1}}</div>
+            <div>{{score.username}}</div>
+            <div><input type="number" ng-model="score.chipcount"/></div>
+            <div><input type="number" ng-model="score.rebuys"/></div>
+          </div>
+        </div> 
+      </div>
+        
+
+
+        <div class="modal-footer">
+          <button ui-turn-off="setTotalScore" class="btn btn-default">Schließen</button>
+          <button ui-turn-off="setTotalScore" class="btn btn-primary" ng-click="saveTotalScore()">
+            Speichern
+          </button>
+        </div>
+    </div>
+  </div>
+  </div>
+</div>

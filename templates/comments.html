@@ -1,0 +1,36 @@
+<div class="modal" ui-if='comments' ui-state='comments'>
+  <div class="modal-backdrop in"></div>
+  <div class="modal-dialog">
+    <div class="modal-content" ng-controller="CommentsController">
+
+      <div class="modal-body">
+        <div class="modal-header">
+          <button class="close" ui-turn-off="comments">&times;</button>
+          <h4 class="modal-title">
+            Kommentare Spieltag #{{currentMatchDay}}
+          </h4>
+        </div>
+
+        <div class="scrollable-content"  style="height: 50% !important;">
+          <div class="profile" ng-repeat="comment in comments" 
+                      ng-class="{'oddRow': $index %2 != 0}">
+
+            <!--div class="profile-avatar-wrap">
+              <img ng-src="{{allUser[comment.USER].avatar}}" id="profile-avatar" alt="Image for Profile">
+            </div-->
+            <div class="user-head">
+              <strong>{{comment.USER}} am {{comment.INSERTTIMESTAMP | date:'dd.MM.yyyy'}}</strong>
+            </div>
+            <div class="rebuy">{{comment.COMMENT}}</div>
+          </div>
+        </div>
+
+        <div ng-show="loggedInUser.loggedIn">
+          <div class="inputInSlider"><input type="text" class="form-control" ng-model="commentText"/></div>
+          <div><button style="margin-top: 10px !important;" ui-turn-off="matchdayInfo" class="btn btn-primary" ng-click="SaveComment()">Speichern</button></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

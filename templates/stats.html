@@ -1,0 +1,27 @@
+<div class="fnpc-headline"><strong>Statistik {{currentYear}}</strong></div>
+
+ <div class="scrollable-content article-table" ng-controller="StatsController">
+  <div class="article">
+      <div class="articleHeadline">
+        <strong>Das Rennen</strong>
+      </div>
+      <div class="articleContent">
+        <canvas id="line" class="chart-line" chart-data="data" chart-labels="labels" chart-legend="true" chart-series="series" chart-options="chartOptions">
+        </canvas>
+
+
+        <!--div>
+            <canvas class="chart-line"
+                    chart-data="data.datasets"
+                    chart-labels="data.labels"
+                    chart-legend="true" 
+                    chart-series="series"
+                    width="400"
+                    height="240"></canvas>
+        </div-->
+
+      </div>
+      <!--div class="fnpc-article-comment">Kommentare</div-->
+    </div>
+  </div>
+</div>

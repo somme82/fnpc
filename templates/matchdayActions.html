@@ -1,0 +1,16 @@
+<div class="modal" ui-if='matchdayActions' ui-state='matchdayActions'>
+  <div class="modal-backdrop in"></div>
+  <div class="modal-dialog">
+    <div class="modal-content" ng-controller="SliderController">
+      <div class="modal-header">
+        <button class="close" 
+                ui-turn-off="matchdayActions">&times;</button>
+        <h4 class="modal-title">
+          Optionen für {{selectedUser}}
+        </h4>
+      </div>
+      
+      <div class="modal-body"></div>
+    </div>
+  </div>
+</div>

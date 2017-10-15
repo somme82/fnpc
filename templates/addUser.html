@@ -1,0 +1,41 @@
+<div class="modal" ui-if='addUser' ui-state='addUser'>
+  <div class="modal-backdrop in"></div>
+  <div class="modal-dialog">
+    <div class="modal-content" ng-controller="SliderController">
+      <div class="modal-header">
+        <button class="close" 
+                ui-turn-off="addUser">&times;</button>
+        <h4 class="modal-title">
+          Neuen Spieler anlegen
+        </h4>
+      </div>
+      
+      <div class="modal-body">
+
+
+        
+          <form name="myForm">
+            
+            Username: <input type="text" class="form-control" ng-model="newUser"/>
+            <input type="file" ngf-select ng-model="picFile" name="file" ngf-accept="'image/*'" required>
+          
+            <br/>
+
+            <!--button ng-click="uploadPic(picFile, newUser)">Submit</button-->
+            <img ngf-src="picFile" class="thumb">
+            <span class="progress" ng-show="picFile.progress >= 0">
+                <div style="width:{{picFile.progress}}%" ng-bind="picFile.progress + '%'"></div>
+            </span>
+
+            <div class="modal-footer">
+              <button ui-turn-off="addUser" class="btn btn-default">Schließen</button>
+              <button ui-turn-off="addUser" class="btn btn-primary" ng-click="addUser(picFile, newUser)">
+                Speichern
+              </button>
+            </div>
+          </form>
+
+        
+    </div>
+  </div>
+</div>

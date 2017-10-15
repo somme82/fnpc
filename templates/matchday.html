@@ -1,0 +1,47 @@
+<div class="fnpc-headline" ng-class="{'activeMatchday' : matchdays[currentYear][currentMatchDay].ACTIVE == 1}">
+  <span ng-click="previousMatchday()" class="previous pull-left"><img class="arrow" src="./styles/images/icons-svg/carat-l-white.svg"></span>
+  <strong>#{{currentMatchDay}} {{matchdays[currentYear][currentMatchDay].DATE | date:'dd.MM.yyyy'}} bei {{matchdays[currentYear][currentMatchDay].VENUE}}</strong>
+  <span ng-click="nextMatchday()" class="next pull-right"><img class="arrow" src="./styles/images/icons-svg/carat-r-white.svg"></span>
+</div>
+<div class="scrollable-content fnpc-content" ng-swipe-left="nextMatchday()" ng-swipe-right="previousMatchday()">
+  <div class="profile" ng-repeat="score in scoreOfMatchday" 
+              ng-class="{'selectedRow': score.username == selectedUser, 'oddRow': $index %2 != 0}"
+              ng-click="rowSelected(score.username)">
+
+    <div class="profile-avatar-wrap">
+      <img ng-src="{{allUser[score.username].avatar}}" id="profile-avatar" alt="Image for Profile">
+    </div>
+    <div class="user-head">
+      <strong>#{{$index + 1}} {{score.username}}</strong>
+      <span class="pull-right"><strong>{{score.totalscore | currency: ""}} €</strong></span>
+    </div>
+    <div class="rebuy">BuyIn: {{score.chipcount - score.totalscore}} € | Chips: {{score.chipcount}} € | Karten: {{score.cards}} </div>
+  </div>
+</div>
+<div class="fnpc-menu-bottom">
+  <div class="fnpc-justified">
+    <a class="fnpc-menu-item" ui-turn-on="chipSlider"
+     ng-show="matchdays[currentYear][currentMatchDay].ACTIVE == 1 || loggedInUser.admin === true"><img src="./styles/images/icons-svg/recycle-white.svg">
+    </a>
+    <a class="fnpc-menu-item" ui-turn-on="rebuy" 
+        ng-show="matchdays[currentYear][currentMatchDay].ACTIVE == 1 || loggedInUser.admin === true"><img src="./styles/images/icons-svg/plus-white.svg">
+    </a>
+    <a class="fnpc-menu-item" ui-turn-on="matchdayInfo"><img src="./styles/images/icons-svg/info-white.svg">
+    </a>
+    <a class="fnpc-menu-item" ui-turn-on="addMatchday" ng-show="matchdays[currentYear][currentMatchDay].ACTIVE == 0"><img src="./styles/images/icons-svg/star-white.svg">
+    <a class="fnpc-menu-item" ui-turn-on="writeArticle" ng-show="matchdays[currentYear][currentMatchDay].ACTIVE == 0"><img src="./styles/images/icons-svg/edit-white.svg">
+    <a class="fnpc-menu-item" ui-turn-on="comments"><img src="./styles/images/icons-svg/mail-white.svg">
+    </a>
+    <div ui-content-for="modals">
+      <div ng-include="'./templates/chipSlider.html'"></div>
+      <div ng-include="'./templates/rebuy.html'"></div>
+      <div ng-include="'./templates/addMatchday.html'"></div>
+      <div ng-include="'./templates/matchdayInfo.html'"></div>
+      <div ng-include="'./templates/setTotalScore.html'"></div>
+      <div ng-include="'./templates/writeArticle.html'"></div>
+      <div ng-include="'./templates/comments.html'"></div>
+    </div>
+  </div>
+  
+</div>
+

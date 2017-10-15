@@ -1,0 +1,32 @@
+<div class="modal" ui-if='matchdays' ui-state='matchdays'>
+	<div class="modal-backdrop in"></div>
+	<div class="modal-dialog">
+		<div class="modal-content" ng-controller="SliderController">
+		  <div class="modal-header">
+			  <button class="close" 
+									ui-turn-off="matchdays">&times;</button>
+				<h4 class="modal-title">
+						Spieltag-Übersicht 2016
+				</h4>
+			</div>
+			<div class="modal-body">
+			  <div class="score-table-row justified">
+					<div style="width:60%">Spieltag</div>
+					<div style="width:20%">Einsatz</div>
+					<div style="width:20%">Auszahlung</div>
+				</div>
+				<div  class="score-table-row scrollable-content" style="height: 50% !important;">
+			  	<div class="score-table-row justified" ng-repeat="matchday in matchdays[currentYear]" 
+										ng-class="{'oddRow': $index %2 != 0, 'redRow': matchday.TotalBuyIn < matchday.TotalScore}">
+						<div style="width:60%">#{{$index + 1}} {{matchday.DATE | date:'dd.MM.yyyy'}} bei {{matchday.VENUE}}</div>
+						<div style="width:20%">{{matchday.TotalBuyIn}}</div>
+						<div style="width:20%">{{matchday.TotalScore}}</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button ui-turn-off="matchdays" class="btn btn-default">Schließen</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

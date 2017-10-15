@@ -1,0 +1,27 @@
+<div class="modal" ui-if='writeArticle' ui-state='writeArticle'>
+  <div class="modal-backdrop in"></div>
+  <div class="modal-dialog">
+    <div class="modal-content" ng-controller="MatchDayController">
+      <div class="modal-header">
+        <button class="close" 
+                ui-turn-off="writeArticle">&times;</button>
+        <h4 class="modal-title">
+          Spieltagsbericht verfassen
+        </h4>
+      </div>
+      <div class="modal-body">
+          {{instantiateTextbox()}}
+          <textarea id="textbox" style="width: 100%; height: 60%;" ng-model="matchDayArticle"></textarea>
+
+          <div class="modal-footer">
+            <div class="modal-footer">
+              <button ui-turn-off="writeArticle" class="btn btn-default">Schließen</button>
+                <button ui-turn-off="writeArticle" class="btn btn-primary" ng-click="saveArticle()">
+                  Speichern
+                </button>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>

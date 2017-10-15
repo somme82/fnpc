@@ -1,0 +1,38 @@
+<div class="modal" ui-if='rebuy' ui-state='rebuy'>
+  <div class="modal-backdrop in"></div>
+  <div class="modal-dialog">
+    <div class="modal-content" ng-controller="SliderController">
+      <div class="modal-header">
+        <button class="close" 
+                ui-turn-off="rebuy">&times;</button>
+        <h4 class="modal-title">
+          Chips nachkaufen
+        </h4>
+      </div>
+      
+      <div class="modal-body">
+
+
+        <!--fieldset class="ui-field-contain"-->
+          <select class="choosePlayer form-control" ng-model="rebuyUser">
+            <option ng-repeat="user in allUser">{{user.username}}</option>
+          </select>
+
+          <button ng-click="setRebuyValue(10)" ng-click="setRebuyValue(10)" class="btn btn-default form-control" ng-class="{'btn-primary': rebuyValue == 10}">10</button>
+          <button nng-click="setRebuyValue(10)" ng-click="setRebuyValue(20)" class="btn btn-default form-control" ng-class="{'btn-primary': rebuyValue == 20}">20</button>
+
+          
+        <!--/fieldset-->
+        <div class="inputInSlider">
+            <input type="number" class="form-control" step="0.01" ng-model="rebuyValue"/>
+          </div>
+        <div class="modal-footer">
+          <button ui-turn-off="rebuy" class="btn btn-default">Schließen</button>
+          <button ui-turn-off="rebuy" class="btn btn-primary" ng-click="addChips(true)">
+            Speichern
+          </button>
+        </div>
+    </div>
+  </div>
+  </div>
+</div>

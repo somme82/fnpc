@@ -1,0 +1,12 @@
+<div class="fnpc-headline"><strong>Admin LogIn</strong></div>
+
+
+<div ng-controller="LogInController" class="fnpc-loginContent">
+  <strong>Benutzername</strong>
+  <input type="text" class="form-control" ng-model="loggedInUser.username"/>
+  <br/>
+  <strong>Passwort</strong>
+  <input type="password" class="form-control" ng-model="loggedInUser.password"/>
+  <br/>
+  <button class="btn btn-default" ng-click="logIn(loggedInUser.username, loggedInUser.password)">LogIn</button>
+</div>
